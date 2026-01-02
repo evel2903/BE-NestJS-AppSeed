@@ -160,10 +160,10 @@ Tài liệu này chuyển hoá nội dung trong `PLAN.MD` thành checklist công
 
 ## 7) Definition of Done (DoD)
 
-- [ ] Đúng cấu trúc folder/layer theo Clean Architecture cho mỗi module
-- [ ] Naming convention PascalCase/C# style được giữ nhất quán
-- [ ] Validation hoạt động và chặn field thừa (`whitelist` + `forbidNonWhitelisted`)
-- [ ] Không lộ TypeORM entity ra ngoài Infrastructure
-- [ ] Error/response chuẩn hoá qua global filter/interceptor
+- [x] Đúng cấu trúc folder/layer theo Clean Architecture cho mỗi module
+- [x] Naming convention PascalCase/C# style được giữ nhất quán
+- [x] Validation hoạt động và chặn field thừa (`whitelist` + `forbidNonWhitelisted`)
+- [x] Không lộ TypeORM entity ra ngoài Infrastructure
+- [x] Error/response chuẩn hoá qua global filter/interceptor
 - [x] Tests chạy pass (tối thiểu unit; integration/e2e theo phạm vi)
 

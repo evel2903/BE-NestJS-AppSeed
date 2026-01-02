@@ -1,0 +1,332 @@
+﻿{
+  "info": {
+    "name": "WMS API",
+    "_postman_id": "7b2f9b6a-3c7e-4e7a-9f43-9f3c5c7d9a10",
+    "description": "WMS master data modules",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" },
+    { "key": "categoryId", "value": "" },
+    { "key": "goodsId", "value": "" },
+    { "key": "productId", "value": "" },
+    { "key": "stockId", "value": "" },
+    { "key": "serialId", "value": "" }
+  ],
+  "item": [
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Electronics\",\n  \"Code\": \"ELEC\",\n  \"Description\": \"Electronic devices\",\n  \"IsActive\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/categories", "host": ["{{baseUrl}}"], "path": ["categories"] }
+          }
+        },
+        {
+          "name": "Get Category By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/categories/{{categoryId}}", "host": ["{{baseUrl}}"], "path": ["categories", "{{categoryId}}"] }
+          }
+        },
+        {
+          "name": "List Categories",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/categories?Page=1&PageSize=20&Search=",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories"],
+              "query": [
+                { "key": "Page", "value": "1" },
+                { "key": "PageSize", "value": "20" },
+                { "key": "Search", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Electronics Updated\",\n  \"Code\": \"ELEC\",\n  \"Description\": \"Updated\",\n  \"IsActive\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/categories/{{categoryId}}", "host": ["{{baseUrl}}"], "path": ["categories", "{{categoryId}}"] }
+          }
+        },
+        {
+          "name": "Delete Category",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/categories/{{categoryId}}", "host": ["{{baseUrl}}"], "path": ["categories", "{{categoryId}}"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Goods",
+      "item": [
+        {
+          "name": "Create Goods",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"USB Cable\",\n  \"Sku\": \"USB-C-001\",\n  \"Barcode\": \"USB001\",\n  \"CategoryId\": \"{{categoryId}}\",\n  \"Unit\": \"pcs\",\n  \"IsActive\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/goods", "host": ["{{baseUrl}}"], "path": ["goods"] }
+          }
+        },
+        {
+          "name": "Get Goods By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/goods/{{goodsId}}", "host": ["{{baseUrl}}"], "path": ["goods", "{{goodsId}}"] }
+          }
+        },
+        {
+          "name": "List Goods",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/goods?Page=1&PageSize=20&Search=&CategoryId=",
+              "host": ["{{baseUrl}}"],
+              "path": ["goods"],
+              "query": [
+                { "key": "Page", "value": "1" },
+                { "key": "PageSize", "value": "20" },
+                { "key": "Search", "value": "" },
+                { "key": "CategoryId", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Goods",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"USB Cable 2m\",\n  \"Sku\": \"USB-C-001\",\n  \"Barcode\": \"USB001\",\n  \"CategoryId\": \"{{categoryId}}\",\n  \"Unit\": \"pcs\",\n  \"IsActive\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/goods/{{goodsId}}", "host": ["{{baseUrl}}"], "path": ["goods", "{{goodsId}}"] }
+          }
+        },
+        {
+          "name": "Delete Goods",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/goods/{{goodsId}}", "host": ["{{baseUrl}}"], "path": ["goods", "{{goodsId}}"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Laptop\",\n  \"Sku\": \"LAP-001\",\n  \"Barcode\": \"LAP001\",\n  \"CategoryId\": \"{{categoryId}}\",\n  \"Unit\": \"pcs\",\n  \"IsActive\": true,\n  \"HasSerial\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/products", "host": ["{{baseUrl}}"], "path": ["products"] }
+          }
+        },
+        {
+          "name": "Get Product By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/products/{{productId}}", "host": ["{{baseUrl}}"], "path": ["products", "{{productId}}"] }
+          }
+        },
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/products?Page=1&PageSize=20&Search=&CategoryId=",
+              "host": ["{{baseUrl}}"],
+              "path": ["products"],
+              "query": [
+                { "key": "Page", "value": "1" },
+                { "key": "PageSize", "value": "20" },
+                { "key": "Search", "value": "" },
+                { "key": "CategoryId", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"Laptop Pro\",\n  \"Sku\": \"LAP-001\",\n  \"Barcode\": \"LAP001\",\n  \"CategoryId\": \"{{categoryId}}\",\n  \"Unit\": \"pcs\",\n  \"IsActive\": true,\n  \"HasSerial\": true\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/products/{{productId}}", "host": ["{{baseUrl}}"], "path": ["products", "{{productId}}"] }
+          }
+        },
+        {
+          "name": "Delete Product",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/products/{{productId}}", "host": ["{{baseUrl}}"], "path": ["products", "{{productId}}"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Stock",
+      "item": [
+        {
+          "name": "Create Stock (Goods)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GoodsId\": \"{{goodsId}}\",\n  \"BatchCode\": \"BATCH-001\",\n  \"Qty\": 100,\n  \"UnitCost\": 1.5,\n  \"ReceivedDate\": \"2025-01-01\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/stocks", "host": ["{{baseUrl}}"], "path": ["stocks"] }
+          }
+        },
+        {
+          "name": "Create Stock (Product)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": \"{{productId}}\",\n  \"BatchCode\": \"BATCH-PRD-001\",\n  \"Qty\": 10,\n  \"UnitCost\": 1200,\n  \"ReceivedDate\": \"2025-01-05\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/stocks", "host": ["{{baseUrl}}"], "path": ["stocks"] }
+          }
+        },
+        {
+          "name": "Get Stock By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/stocks/{{stockId}}", "host": ["{{baseUrl}}"], "path": ["stocks", "{{stockId}}"] }
+          }
+        },
+        {
+          "name": "List Stocks",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/stocks?Page=1&PageSize=20&GoodsId=&ProductId=&FromDate=&ToDate=",
+              "host": ["{{baseUrl}}"],
+              "path": ["stocks"],
+              "query": [
+                { "key": "Page", "value": "1" },
+                { "key": "PageSize", "value": "20" },
+                { "key": "GoodsId", "value": "" },
+                { "key": "ProductId", "value": "" },
+                { "key": "FromDate", "value": "" },
+                { "key": "ToDate", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Stock",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"BatchCode\": \"BATCH-001\",\n  \"Qty\": 120,\n  \"UnitCost\": 1.6,\n  \"ReceivedDate\": \"2025-01-01\",\n  \"ExpiredDate\": \"2026-01-01\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/stocks/{{stockId}}", "host": ["{{baseUrl}}"], "path": ["stocks", "{{stockId}}"] }
+          }
+        },
+        {
+          "name": "Delete Stock",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/stocks/{{stockId}}", "host": ["{{baseUrl}}"], "path": ["stocks", "{{stockId}}"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Serial",
+      "item": [
+        {
+          "name": "Create Serial",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ProductId\": \"{{productId}}\",\n  \"StockId\": \"{{stockId}}\",\n  \"SerialNumber\": \"SER-0001\",\n  \"Status\": \"active\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/serials", "host": ["{{baseUrl}}"], "path": ["serials"] }
+          }
+        },
+        {
+          "name": "Get Serial By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/serials/{{serialId}}", "host": ["{{baseUrl}}"], "path": ["serials", "{{serialId}}"] }
+          }
+        },
+        {
+          "name": "List Serials",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/serials?Page=1&PageSize=20&ProductId=&StockId=&Status=",
+              "host": ["{{baseUrl}}"],
+              "path": ["serials"],
+              "query": [
+                { "key": "Page", "value": "1" },
+                { "key": "PageSize", "value": "20" },
+                { "key": "ProductId", "value": "" },
+                { "key": "StockId", "value": "" },
+                { "key": "Status", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Serial",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StockId\": \"{{stockId}}\",\n  \"Status\": \"inactive\"\n}"
+            },
+            "url": { "raw": "{{baseUrl}}/serials/{{serialId}}", "host": ["{{baseUrl}}"], "path": ["serials", "{{serialId}}"] }
+          }
+        },
+        {
+          "name": "Delete Serial",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/serials/{{serialId}}", "host": ["{{baseUrl}}"], "path": ["serials", "{{serialId}}"] }
+          }
+        }
+      ]
+    }
+  ]
+}

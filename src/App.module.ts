@@ -7,6 +7,11 @@ import { AppConfig, DatabaseAppConfig, EmailAppConfig, JwtAppConfig, RedisAppCon
 import { CreateDatabaseConfig } from './Shared/Database/Config/DatabaseConfig';
 import { AppController } from './AppController';
 import { UserModule } from './Modules/Users/UserModule';
+import { CategoryModule } from './Modules/Category/CategoryModule';
+import { GoodsModule } from './Modules/Goods/GoodsModule';
+import { ProductModule } from './Modules/Product/ProductModule';
+import { StockModule } from './Modules/Stock/StockModule';
+import { SerialModule } from './Modules/Serial/SerialModule';
 import { AuthenticationModule } from './Modules/Authentication/AuthenticationModule';
 import { CommonModule } from './Common/CommonModule';
 import { ThrottlerModule } from '@nestjs/throttler';
@@ -44,6 +49,11 @@ import { JobsModule } from './Modules/Jobs/JobsModule';
       useFactory: (configService: ConfigService) => CreateDatabaseConfig(configService),
     }),
     CommonModule,
+    CategoryModule,
+    GoodsModule,
+    ProductModule,
+    StockModule,
+    SerialModule,
     UserModule,
     AuthenticationModule,
     FileUploadModule,
