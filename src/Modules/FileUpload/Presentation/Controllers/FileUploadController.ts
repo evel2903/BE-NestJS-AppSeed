@@ -1,8 +1,10 @@
 import { Controller, Post, Query, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { UploadFileUseCase } from '../../Application/UseCases/UploadFileUseCase';
 import { UploadQuery } from '../Requests/UploadQuery';
 
+@ApiTags('FileUpload')
 @Controller('files')
 export class FileUploadController {
   constructor(private readonly uploadFileUseCase: UploadFileUseCase) {}

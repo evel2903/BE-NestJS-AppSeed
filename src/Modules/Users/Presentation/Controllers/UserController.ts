@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { CreateUserUseCase } from '../../Application/UseCases/CreateUserUseCase';
 import { DeleteUserUseCase } from '../../Application/UseCases/DeleteUserUseCase';
 import { GetUserByIdUseCase } from '../../Application/UseCases/GetUserByIdUseCase';
@@ -8,6 +9,7 @@ import { CreateUserRequest } from '../Requests/CreateUserRequest';
 import { ListUsersQuery } from '../Requests/ListUsersQuery';
 import { UpdateUserRequest } from '../Requests/UpdateUserRequest';
 
+@ApiTags('Users')
 @Controller('users')
 export class UserController {
   constructor(

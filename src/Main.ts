@@ -44,7 +44,8 @@ async function Bootstrap() {
       .setTitle('BE NestJS AppSeed API')
       .setDescription('API documentation')
       .setVersion('1')
-      .addBearerAuth()
+      .addBearerAuth({ type: 'http', scheme: 'bearer', bearerFormat: 'JWT' }, 'BearerAuth')
+      .addSecurityRequirements('BearerAuth')
       .addApiKey({ type: 'apiKey', name: 'X-API-Version', in: 'header' }, 'ApiVersion')
       .build();
 

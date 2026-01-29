@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 import { Role } from '../../../../Common/Constants/Role';
 import { Roles } from '../../../../Common/Security/Roles';
@@ -10,6 +11,7 @@ import { JwtUser } from '../../Infrastructure/Jwt/JwtStrategy';
 import { LoginRequest } from '../Requests/LoginRequest';
 import { RegisterRequest } from '../Requests/RegisterRequest';
 
+@ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
   constructor(

@@ -17,6 +17,7 @@ import { CacheModule } from './Modules/Cache/CacheModule';
 import { EmailModule } from './Modules/Email/EmailModule';
 import { HealthModule } from './Modules/Health/HealthModule';
 import { JobsModule } from './Modules/Jobs/JobsModule';
+import { AlbumModule } from './Modules/Albums/AlbumModule';
 
 @Module({
   imports: [
@@ -51,6 +52,7 @@ import { JobsModule } from './Modules/Jobs/JobsModule';
     EmailModule,
     HealthModule,
     JobsModule.Register(),
+    AlbumModule,
   ],
   controllers: [AppController],
   providers: [

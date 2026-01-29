@@ -1,7 +1,9 @@
 import { Body, Controller, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { EnqueueExampleJobUseCase } from '../../Application/UseCases/EnqueueExampleJobUseCase';
 import { EnqueueExampleRequest } from '../Requests/EnqueueExampleRequest';
 
+@ApiTags('Jobs')
 @Controller('jobs')
 export class JobsController {
   constructor(private readonly enqueueExampleJobUseCase: EnqueueExampleJobUseCase) {}
