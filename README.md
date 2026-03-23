@@ -1,72 +1,15 @@
 # BE-NestJS-AppSeed
 
-NestJS + MySQL seed project following Clean Architecture per-module.
+A NestJS + MySQL seed project that provides a clean, module-based Clean Architecture foundation so teams can build faster.
 
-## Prerequisites
+## Documentation
 
-- Node.js 18+
-- MySQL 8+ (or Docker)
-- (Optional) Redis (or Docker)
+- Introduction: `INTRODUCTION.md`
+- Features list: `FEATURES.md`
+- Setup and running: `SETUP.md`
+- New module guide: `NEW_MODULE_GUIDE.md`
 
-## Setup
+## Project Notes
 
-1) Install dependencies
-
-```bash
-npm install
-```
-
-2) Create `.env`
-
-```bash
-cp .env.example .env
-```
-
-3) Start dependencies (MySQL + Redis) with Docker (recommended)
-
-```bash
-docker compose up -d mysql redis
-```
-
-4) Run migrations + seed
-
-```bash
-npm run db:prepare
-```
-
-## Run
-
-Dev:
-
-```bash
-npm run dev
-```
-
-Dev (write stdout/stderr to `logs/`):
-
-```bash
-npm run dev:log
-```
-
-Build + start:
-
-```bash
-npm run build
-npm start
-```
-
-## Tests / Lint / Format
-
-```bash
-npm test
-npm run lint
-npm run format
-```
-
-## Swagger
-
-- Swagger UI: `http://localhost:3000/docs`
-
-## Notes
-
-- API versioning uses header `X-API-Version` (defaults to `1` if missing).
+- Project plan: `PLAN.MD`
+- Task list: `TASK.MD`
